@@ -1,6 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\Project_UserController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SceneController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*

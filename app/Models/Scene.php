@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Scene extends Model
 {
     use HasFactory;
+    
+    //リレーション
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+    
+    public function members()
+    {
+        return $this->hasMany(Member::class);
+    }
 }

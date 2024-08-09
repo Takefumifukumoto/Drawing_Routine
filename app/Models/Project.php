@@ -13,4 +13,19 @@ class Project extends Model
         'name',
         'music'
         ];
+    
+    //リレーション    
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
+    
+    public function scenes()
+    {
+        return $this->hasMany(Scene::class);
+    }
+    
+    public function members()
+    {
+        return $this->hasMany(Member::class);
+    }
 }

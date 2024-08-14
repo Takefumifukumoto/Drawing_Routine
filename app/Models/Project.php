@@ -11,7 +11,7 @@ class Project extends Model
     
     protected $fillable = [
         'name',
-        'music'
+        'music_url'
         ];
     
     //リレーション    
@@ -27,5 +27,10 @@ class Project extends Model
     public function members()
     {
         return $this->hasMany(Member::class);
+    }
+    
+    public function histories()
+    {
+        return $this->hasMany(History::class);
     }
 }

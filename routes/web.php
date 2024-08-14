@@ -34,12 +34,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+require __DIR__.'/auth.php';
+
 //プロジェクト作成画面
-Route::get('/create', function() {
-    return view('projects.create');
-});
+Route::get('/create', [ProjectController::class, 'create'])->name('create');
 
 //プロジェクト作成
 Route::post('/projects', [ProjectController::class, 'store']);
 
-require __DIR__.'/auth.php';
+//プロジェクト閲覧
+Route::get('/projects/{project}', [ProjectController::class ,'show']);

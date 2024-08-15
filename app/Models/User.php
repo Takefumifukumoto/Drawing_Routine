@@ -42,4 +42,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    //リレーション
+    public function projects(){
+        return $this->belongsToMany(Project::class);
+    }
+    
+    public function histories()
+    {
+        return $this->hasMany(History::class);
+    }
 }

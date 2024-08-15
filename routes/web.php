@@ -35,3 +35,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//プロジェクト作成画面
+Route::get('/create', [ProjectController::class, 'create'])->name('create');
+
+//プロジェクト作成
+Route::post('/projects', [ProjectController::class, 'store']);
+
+//プロジェクト閲覧
+Route::get('/projects/{project}', [ProjectController::class ,'show']);

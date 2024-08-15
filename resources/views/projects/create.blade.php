@@ -24,7 +24,7 @@
                 </div>            
                 <input type="submit" value="保存"/>
             </form>
-            <div class="back">[<a href="/">back</a>]</div>
+            <div class="back">[<a href="/dashboard">back</a>]</div>
         </body>
     </x-app-layout>
     

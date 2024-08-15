@@ -17,13 +17,13 @@
                     <h3>音源：</h3>
                     @if($project->music_url)
                     <div>
-                        <img src="{{ $project->music_url }}" alt="画像が読み込めません。">
+                        <audio controls src="{{ $project->music_url }}"/>
                     </div>
                     @endif
                 </div>
             </div>
             <div class="footer">
-                <a href="/">戻る</a>
+                <a href="/dashboard">戻る</a>
             </div>
         </body>
     </x-app-layout>

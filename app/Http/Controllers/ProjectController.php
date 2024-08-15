@@ -17,7 +17,7 @@ class ProjectController extends Controller
     {
         $input = $request['project'];
         if($request->file('music')){
-            $music_url = Cloudinary::upload($request->file('music')->getRealPath())->getSecurePath();
+            $music_url = Cloudinary::uploadVideo($request->file('music')->getRealPath())->getSecurePath();
             $input += ['music_url' => $music_url];
         }
         $project->fill($input)->save();

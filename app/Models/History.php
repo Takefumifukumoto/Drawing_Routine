@@ -9,6 +9,11 @@ class History extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'project_id',
+        'user_id'
+    ];
+    
     public function projects()
     {
         return $this->belongsTo(Project::class);

@@ -45,7 +45,7 @@ class User extends Authenticatable
     
     //リレーション
     public function projects(){
-        return $this->belongsToMany(Project::class);
+        return $this->belongsToMany(Project::class)->withPivot('role');
     }
     
     public function histories()

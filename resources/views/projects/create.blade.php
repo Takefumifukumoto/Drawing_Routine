@@ -21,7 +21,7 @@
                     <h2>音源：</h2>
                     <input type="file" name="music" value="{{ old('music') }}"/>
                     <p class="title__error" style="color:red">{{ $errors->first('music') }}</p>
-                </div>            
+                </div>
                 <input type="submit" value="保存"/>
             </form>
             <div class="back">[<a href="/dashboard">back</a>]</div>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('project_id')->constrained();
             $table->string('name',50);
+            $table->double('time',7,2);
             $table->string('image_url')->nullable();
             $table->string('comment',500)->nullable();
             $table->string('open_comment',500)->nullable();

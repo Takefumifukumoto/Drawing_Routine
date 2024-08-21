@@ -24,9 +24,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [UserController::class, 'dashboard']
+)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,5 +41,14 @@ Route::get('/create', [ProjectController::class, 'create'])->name('create');
 //プロジェクト作成
 Route::post('/projects', [ProjectController::class, 'store']);
 
+//プロジェクト編集画面
+Route::get('/projects/{project}/edit', [ProjectController::class ,'edit']);
+
 //プロジェクト閲覧
 Route::get('/projects/{project}', [ProjectController::class ,'show']);
+
+//シーン作成画面にproject.idと音源の時刻を送る
+Route::post('/scenes', [SceneController::class ,'prepare']);
+
+//シーン作成画面
+Route::get('/scenes/create', [SceneController::class ,'create']);

@@ -17,14 +17,23 @@
                     <h3>音源：</h3>
                     @if($project->music_url)
                     <div>
-                        <audio controls src="{{ $project->music_url }}"/>
+                        <audio id=test_audio  controls src="{{ $project->music_url }}"/>
                     </div>
                     @endif
                 </div>
             </div>
+            <div class="edit">
+                <a href="/projects/{{ $project->id }}/edit">編集</a>
+            </div>
             <div class="footer">
                 <a href="/dashboard">戻る</a>
             </div>
+        <script>
+            const audio = document.getElementById('test_audio');
+            audio.addEventListener('timeupdate', () =>{
+                console.log(audio.currentTime);
+            });
+        </script>
         </body>
     </x-app-layout>
     

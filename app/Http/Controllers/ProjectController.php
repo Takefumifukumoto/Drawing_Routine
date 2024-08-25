@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\History;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;
 
@@ -30,9 +31,9 @@ class ProjectController extends Controller
         return redirect('/projects/' . $project->id);
     }
     
-    public function show(Project $project)
+    public function show(Project $project, History $history)
     {
-        [HistoryController::class, 'record'];
+
         return view('/projects.show')->with(['project' => $project]);
     }
     

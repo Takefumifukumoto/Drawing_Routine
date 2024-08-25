@@ -48,6 +48,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Project::class)->withPivot('role');
     }
     
+    public function watchedprojects(){
+        return $this->belongsToMany(Project::class, 'histories')->withPivot('updated_at');
+    }
+    
     public function histories()
     {
         return $this->hasMany(History::class);

@@ -45,6 +45,9 @@ Route::post('/projects', [ProjectController::class, 'store']);
 Route::get('/projects/{project}/edit', [ProjectController::class ,'edit']);
 
 //プロジェクト閲覧
+Route::get('/projects/{project}/record', [UserController::class ,'history']);
+
+//プロジェクト閲覧
 Route::get('/projects/{project}', [ProjectController::class ,'show']);
 
 //シーン作成画面にproject.idと音源の時刻を送る

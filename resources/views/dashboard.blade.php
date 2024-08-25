@@ -5,12 +5,24 @@
         </h2>
     </x-slot>
 
+    <div class='created_projects'>
     <h1>作成したプロジェクト</h1>
-    <div class='projects'>
         @foreach ($created_projects as $created_project)
             <div class='project'>
                 <h2 class='name'>
-                    <a href="/projects/{{ $created_project->id }}">{{ $created_project->name }}</a>
+                    <a href="/projects/{{ $created_project->id }}/record">{{ $created_project->name }}</a>
+                </h2>
+            </div>
+        @endforeach
+    </div>
+    
+    
+    <div class='created_projects'>
+    <h1>閲覧したプロジェクト</h1>
+        @foreach ($watched_projects as $watched_project)
+            <div class='project'>
+                <h2 class='name'>
+                    <a href="/projects/{{ $watched_project->id }}/record">{{ $watched_project->name }}</a>
                 </h2>
             </div>
         @endforeach

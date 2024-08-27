@@ -14,7 +14,7 @@ class ProjectController extends Controller
     public function create()
     {
         return view('/projects.create');  //create.blade.phpを表示
-    }    
+    }
     
     public function store(Request $request, Project $project)
     {
@@ -40,5 +40,12 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         return view('/projects.edit')->with(['project' => $project]);
+    }
+    
+    public function scene_create(Request $request, Project $project)
+    {
+        $project = Project::find($request['project_id']);
+        $audio_time = $request['time'];
+        return view('/scenes.create')->with(['audio_time' => $audio_time, 'project' => $project,]);
     }
 }

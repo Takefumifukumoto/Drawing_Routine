@@ -9,13 +9,12 @@
             　Create
         </x-slot>
         <body>
-            <h1>Drawing Routine</h1>
             <form action="/projects" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="name">
                     <h2>プロジェクト名：</h2>
                     <input type="text" name="project[name]" value="{{ old('project.name') }}"/>
-                    <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+                    <p class="title__error" style="color:red">{{ $errors->first('project[name]') }}</p>
                 </div>
                 <div class="music">
                     <h2>音源：</h2>

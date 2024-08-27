@@ -9,6 +9,15 @@ class Scene extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'project_id',
+        'name',
+        'time',
+        'image_url',
+        'comment',
+        'open_comment',
+        ];
+    
     //リレーション
     public function project()
     {

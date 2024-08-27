@@ -50,8 +50,10 @@ Route::get('/projects/{project}/record', [UserController::class ,'history']);
 //プロジェクト閲覧
 Route::get('/projects/{project}', [ProjectController::class ,'show']);
 
-//シーン作成画面にproject.idと音源の時刻を送る
-Route::post('/scenes', [SceneController::class ,'prepare']);
+Route::post('/projects/{project}', [ProjectController::class ,'show']);
 
 //シーン作成画面
-Route::get('/scenes/create', [SceneController::class ,'create']);
+Route::post('/scenes', [ProjectController::class ,'scene_create']);
+
+//シーン作成
+Route::post('/scenes/store', [SceneController::class ,'store']);

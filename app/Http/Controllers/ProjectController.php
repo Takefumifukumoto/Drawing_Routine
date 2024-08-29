@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\History;
+use App\Models\Scene;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;
 
@@ -39,7 +40,11 @@ class ProjectController extends Controller
     
     public function edit(Project $project)
     {
-        return view('/projects.edit')->with(['project' => $project]);
+        $scenes = $project->scenes()->orderBy('time', 'asc')->get();
+        return view('/projects.edit')->with([
+            'project' => $project,
+            'scenes' => $scenes,
+            ]);
     }
     
     public function scene_create(Request $request, Project $project)

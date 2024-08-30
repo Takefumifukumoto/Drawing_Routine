@@ -21,6 +21,13 @@
                     </div>
                     @endif
                 </div>
+                
+                <div class="scenes">
+                    <div class="current_scene">
+                        <img id="current_image">
+                        <p id="current_open_comment"></p>
+                    </div>
+                </div>
             </div>
             <div class="edit">
                 <a href="/projects/{{ $project->id }}/edit">編集</a>
@@ -30,8 +37,22 @@
             </div>
         <script>
             const audio = document.getElementById('test_audio');
+            const current_scene = document.getElementById('current_scene');
             audio.addEventListener('timeupdate', () =>{
-                console.log(audio.currentTime);
+                const scenes = @json($scenes);
+                var image;
+                var open_comment;
+                scenes.some(function(scene){
+                    if(scene.time <= audio.currentTime){
+                    image = scene.image_url;
+                    open_comment = scene.open_comment;
+                    } else {
+                    document.getElementById('current_image').src = image;
+                    document.getElementById('current_open_comment').textContent = open_comment;
+                    console.log(scene);
+                    return true;
+                    }
+                })
             });
         </script>
         </body>

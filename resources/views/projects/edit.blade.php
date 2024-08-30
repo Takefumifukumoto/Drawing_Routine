@@ -25,10 +25,9 @@
                 
                 <div class="scenes">
                     <div class="current_scene">
-                        <img id="current_scene">
+                        <img id="current_image">
+                        <p id="current_open_comment"></p>
                     </div>
-                    
-
                 </div>
                 
                 <input type="submit" value="保存"/>
@@ -49,7 +48,7 @@
             <script>
                 const audio = document.getElementById('test_audio');
                 const scene_form = document.getElementById('scene_form');
-                const current_scene = document.getElementById('current_scene');
+                const current_image = document.getElementById('current_image');
                 scene_form.addEventListener('submit', () =>{
                     const input_audio = document.getElementById('audio');
                     input_audio.value = audio.currentTime;
@@ -57,11 +56,14 @@
                 audio.addEventListener('timeupdate', () =>{
                     const scenes = @json($scenes);
                     var image;
+                    var open_comment;
                     scenes.some(function(scene){
                         if(scene.time <= audio.currentTime){
                         image = scene.image_url;
+                        open_comment = scene.open_comment;
                         } else {
-                        document.getElementById('current_scene').src = image
+                        document.getElementById('current_image').src = image;
+                        document.getElementById('current_open_comment').textContent = "公開コメント：" + open_comment;
                         console.log(scene);
                         return true;
                         }

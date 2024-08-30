@@ -34,8 +34,11 @@ class ProjectController extends Controller
     
     public function show(Project $project, History $history)
     {
-
-        return view('/projects.show')->with(['project' => $project]);
+        $scenes = $project->scenes()->orderBy('time', 'asc')->get();
+        return view('/projects.show')->with([
+            'project' => $project,
+            'scenes' => $scenes,
+            ]);
     }
     
     public function edit(Project $project)

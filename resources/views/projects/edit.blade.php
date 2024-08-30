@@ -39,7 +39,7 @@
                 <div class="scene_add">
                     <input type=hidden name=project_id value={{ $project->id }}></input>
                     <input type=hidden name=time id=audio></input>
-                    <button type="submit">現在の再生時間でシーンを作成</button>
+                    <button type="submit">シーンを作成</button>
                 </div>
                 
             
